@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         if (Input.GetButtonDown("Jump")) {
             jump = true;
+            
         }
 
     }
@@ -28,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate() {
         touchingGround = false;
 
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.position, .1f, groundLayer);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.position, .01f, groundLayer);
 
         if (colliders.Length > 0) {
             touchingGround = true;
@@ -38,7 +39,8 @@ public class PlayerMovement : MonoBehaviour
             rb.MovePosition(rb.position + movement * movementSpeed * Time.fixedDeltaTime);
         }
 
-        if(jump) {
+        if(touchingGround && jump) {
+            touchingGround = false;
             rb.AddForce(new Vector2(0f, jumpForce));
             jump = false;
         }
