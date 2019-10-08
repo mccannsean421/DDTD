@@ -27,7 +27,6 @@ public class PlayerMovement : MonoBehaviour
             jump = true;
 
         }
-
     }
 
     void FixedUpdate()
@@ -50,9 +49,13 @@ public class PlayerMovement : MonoBehaviour
         // The player can only jump while touching the ground
         if (touchingGround && jump)
         {
-            touchingGround = false;
-            rb.AddForce(new Vector2(0f, jumpForce));
-            jump = false;
+            Jump();
         }
+    }
+
+    void Jump() {
+        touchingGround = false;
+        rb.AddForce(new Vector2(0f, jumpForce));
+        jump = false;
     }
 }
