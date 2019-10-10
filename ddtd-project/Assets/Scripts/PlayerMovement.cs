@@ -17,11 +17,15 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundLayer;
     public bool airControl = false;
     private Vector3 m_Velocity = Vector3.zero;
+    public Animator animator;
 
     // Update is called once per frame
     void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
+
+        animator.SetFloat("Speed", Mathf.Abs(movement.x));
+
         if (Input.GetButtonDown("Jump"))
         {
             jump = true;
@@ -53,7 +57,8 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void Jump() {
+    void Jump()
+    {
         touchingGround = false;
         rb.AddForce(new Vector2(0f, jumpForce));
         jump = false;

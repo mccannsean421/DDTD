@@ -757,6 +757,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   airControl: 0
+  animator: {fileID: 1971084177}
 --- !u!4 &1971084173
 Transform:
   m_ObjectHideFlags: 0
