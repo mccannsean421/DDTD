@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 m_Velocity = Vector3.zero;
     public Animator animator;
 
+    private bool facingRight = true;
+
     // Update is called once per frame
     void Update()
     {
@@ -29,7 +31,6 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             jump = true;
-
         }
     }
 
@@ -50,11 +51,22 @@ public class PlayerMovement : MonoBehaviour
         // And then smoothing it out and applying it to the character
         rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
 
+        if (movement.x > 0 && !facingRight)
+        {
+            Flip();
+        }
+        else if (movement.x < 0 && facingRight)
+        {
+            Flip();
+        }
+
         // The player can only jump while touching the ground
         if (touchingGround && jump)
         {
             Jump();
         }
+
+
     }
 
     void Jump()
@@ -62,5 +74,13 @@ public class PlayerMovement : MonoBehaviour
         touchingGround = false;
         rb.AddForce(new Vector2(0f, jumpForce));
         jump = false;
+    }
+
+    void Flip()
+    {
+        facingRight = !facingRight;
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
     }
 }
