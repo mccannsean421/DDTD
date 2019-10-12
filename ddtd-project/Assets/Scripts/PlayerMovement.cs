@@ -1,9 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
 {
+
+    [Header("Events")]
+    [Space]
+
+
 
     [SerializeField] private Transform groundCheck;
     [Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;
@@ -21,6 +27,21 @@ public class PlayerMovement : MonoBehaviour
 
     private bool facingRight = true;
 
+    
+	public UnityEvent OnLandEvent;
+
+	[System.Serializable]
+	public class BoolEvent : UnityEvent<bool> { }
+
+
+    private void Awake() {
+		if (OnLandEvent == null)
+			OnLandEvent = new UnityEvent();
+
+	}
+
+
+
     // Update is called once per frame
     void Update()
     {
@@ -30,12 +51,14 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
+            animator.SetBool("isJumping", true);
             jump = true;
         }
     }
 
     void FixedUpdate()
     {
+        bool wasGrounded = touchingGround;
         touchingGround = false;
 
         Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.position, .01f, groundLayer);
@@ -43,6 +66,8 @@ public class PlayerMovement : MonoBehaviour
         if (colliders.Length > 0)
         {
             touchingGround = true;
+            if (!wasGrounded)
+				OnLandEvent.Invoke();
         }
 
         // Move the character by finding the target velocity
@@ -63,6 +88,7 @@ public class PlayerMovement : MonoBehaviour
         // The player can only jump while touching the ground
         if (touchingGround && jump)
         {
+            
             Jump();
         }
 
@@ -71,9 +97,15 @@ public class PlayerMovement : MonoBehaviour
 
     void Jump()
     {
+        
         touchingGround = false;
         rb.AddForce(new Vector2(0f, jumpForce));
         jump = false;
+        //animator.SetBool("isJumping", false);
+    }
+
+    public void OnLanding() {
+        animator.SetBool("isJumping", false);
     }
 
     void Flip()
