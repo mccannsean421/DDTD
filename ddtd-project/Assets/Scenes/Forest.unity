@@ -3065,7 +3065,7 @@ TilemapCollider2D:
   m_GameObject: {fileID: 1384561164}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b82436d81f575964196e19703a5e3bfc, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -3387,6 +3387,16 @@ PrefabInstance:
     - target: {fileID: 3566846046247863303, guid: b62133e16556c224885f36473c42798b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3566846046247863300, guid: b62133e16556c224885f36473c42798b,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3566846046247863300, guid: b62133e16556c224885f36473c42798b,
+        type: 3}
+      propertyPath: m_CollisionDetection
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
