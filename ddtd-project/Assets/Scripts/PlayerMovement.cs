@@ -54,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("isJumping", true);
             jump = true;
         }
+
     }
 
     void FixedUpdate()
