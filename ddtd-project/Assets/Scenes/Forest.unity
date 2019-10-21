@@ -598,6 +598,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &571449789 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1796552478, guid: 3873312880797a447a9f2f3666b51143,
+    type: 3}
+  m_PrefabInstance: {fileID: 2139017470356333737}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &894394254
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,7 +776,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1528401946}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.2974524, y: 10.94, z: -8}
+  m_LocalPosition: {x: 7.297739, y: 10.94, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -813,6 +819,27 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: Cinemachine.CinemachineBrain+VcamActivatedEvent, Cinemachine, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!1 &1634301296 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3229268514487037921, guid: 3873312880797a447a9f2f3666b51143,
+    type: 3}
+  m_PrefabInstance: {fileID: 2139017470356333737}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1634301303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634301296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8775d38e02853c448e2e7e5a88a965c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 571449789}
+  bulletPrefab: {fileID: 1289442043048953430, guid: 64a3b11e40dc8c243a9b4acce3fe7816,
+    type: 3}
 --- !u!1 &1742263205
 GameObject:
   m_ObjectHideFlags: 0
@@ -976,7 +1003,7 @@ PrefabInstance:
     - target: {fileID: 756103613323531115, guid: 4e72be5f01f739d46a27eb04171803d2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.2974524
+      value: 7.297739
       objectReference: {fileID: 0}
     - target: {fileID: 756103613323531115, guid: 4e72be5f01f739d46a27eb04171803d2,
         type: 3}
@@ -1239,6 +1266,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796552477, guid: 3873312880797a447a9f2f3666b51143, type: 3}
+      propertyPath: m_Name
+      value: FirePoint
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3873312880797a447a9f2f3666b51143, type: 3}

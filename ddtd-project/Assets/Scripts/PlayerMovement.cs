@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 m_Velocity = Vector3.zero;
     public Animator animator;
 
-    private bool facingRight = true;
+    public bool facingRight = true;
 
     
 	public UnityEvent OnLandEvent;
@@ -112,8 +112,6 @@ public class PlayerMovement : MonoBehaviour
     void Flip()
     {
         facingRight = !facingRight;
-        Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
+        transform.Rotate(0f, 180f, 0f);
     }
 }
