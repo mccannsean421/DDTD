@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 134991780}
   - component: {fileID: 134991781}
   - component: {fileID: 134991782}
+  - component: {fileID: 134991783}
   m_Layer: 0
   m_Name: Agent
   m_TagString: Untagged
@@ -244,7 +245,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &134991781
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -274,6 +275,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 100
+--- !u!114 &134991783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134991776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8afeb2371a218e49a47720a5591df4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
 --- !u!1 &249616646
 GameObject:
   m_ObjectHideFlags: 0
