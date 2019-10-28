@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DeathZone : MonoBehaviour
 {
@@ -10,7 +11,8 @@ public class DeathZone : MonoBehaviour
     {
         if (obj.name == "Player")
         {
-            Debug.Log("YOU DEAD");
+            Scene scene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(scene.buildIndex);
         }
     }
 }
